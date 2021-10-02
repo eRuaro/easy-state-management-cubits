@@ -7,10 +7,10 @@ class OperationsCubit extends Cubit<OperationsState> {
   OperationsCubit() : super(OperationsState(number: 0));
 
   void increment() {
-    emit(OperationsState(number: state.number++));
+    emit(OperationsState(number: state.number + 1));
   }
 
   void decrement() {
-    emit(OperationsState(number: state.number--));
+    emit(OperationsState(number: state.number - 1));
   }
 }
