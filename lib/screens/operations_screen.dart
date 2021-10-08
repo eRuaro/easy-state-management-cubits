@@ -1,5 +1,7 @@
+import 'package:cubit_state_management/cubits/operations/operations_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OperationsScreen extends StatefulWidget {
   @override
@@ -7,8 +9,6 @@ class OperationsScreen extends StatefulWidget {
 }
 
 class _OperationsScreenState extends State<OperationsScreen> {
-  int _counter = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,13 +16,17 @@ class _OperationsScreenState extends State<OperationsScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
-            _counter.toString(),
-            style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
+          BlocBuilder<OperationsCubit, OperationsState>(
+            builder: (context, state) {
+              return Text(
+                      state.number.toString(),
+                      style: TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    );
+            },
           ),
           SizedBox(
             height: 20,
@@ -33,9 +37,7 @@ class _OperationsScreenState extends State<OperationsScreen> {
               FloatingActionButton(
                 backgroundColor: Colors.white,
                 onPressed: () {
-                  setState(() {
-                    _counter--;
-                  });
+                  BlocProvider.of<OperationsCubit>(context).decrement();
                 },
                 child: Text(
                   "-",
@@ -48,9 +50,7 @@ class _OperationsScreenState extends State<OperationsScreen> {
               FloatingActionButton(
                 backgroundColor: Colors.white,
                 onPressed: () {
-                  setState(() {
-                    _counter++;
-                  });
+                  BlocProvider.of<OperationsCubit>(context).increment();
                 },
                 child: Text(
                   "+",
