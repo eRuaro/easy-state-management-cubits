@@ -26,5 +26,12 @@ void main() {
       act: (cubit) => operationsCubit.increment(),
       expect: () => [OperationsState(number: 1)],
     );
+
+    blocTest(
+      "The operationCubit should emit a state of OperationState(number: -1) when decrement() is called",
+      build: () => operationsCubit,
+      act: (cubit) => operationsCubit.decrement(),
+      expect: () => [OperationsState(number: -1)],
+    );
   });
 }
