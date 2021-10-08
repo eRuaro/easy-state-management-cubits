@@ -18,6 +18,7 @@ class _OperationsScreenState extends State<OperationsScreen> {
         children: [
           BlocBuilder<OperationsCubit, OperationsState>(
             builder: (context, state) {
+              // Should a return a widget that depends only on the state and context
               return Text(
                       state.number.toString(),
                       style: TextStyle(
