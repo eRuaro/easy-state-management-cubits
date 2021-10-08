@@ -19,14 +19,25 @@ class _OperationsScreenState extends State<OperationsScreen> {
           BlocBuilder<OperationsCubit, OperationsState>(
             builder: (context, state) {
               // Should a return a widget that depends only on the state and context
+              if (state.number % 2 == 0) {
+                return Text(
+                  "even steven: ${state.number}",
+                  style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                );
+              }
+
               return Text(
-                      state.number.toString(),
-                      style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                    );
+                state.number.toString(),
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              );
             },
           ),
           SizedBox(
