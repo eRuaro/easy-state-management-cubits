@@ -21,17 +21,31 @@ void main() {
     });
 
     blocTest(
-      "The operationCubit should emit a state of OperationState(number: 1) when increment() is called",
+      "The operationCubit should emit a state of OperationState(number: 1) when incrementByOne() is called",
       build: () => operationsCubit,
       act: (cubit) => operationsCubit.incrementByOne(),
       expect: () => [OperationsState(number: 1)],
     );
 
     blocTest(
-      "The operationCubit should emit a state of OperationState(number: -1) when decrement() is called",
+      "The operationCubit should emit a state of OperationState(number: -1) when decrementByOne() is called",
       build: () => operationsCubit,
       act: (cubit) => operationsCubit.decrementByOne(),
       expect: () => [OperationsState(number: -1)],
+    );
+
+    blocTest(
+      "The operationCubit should emit a state of OperationState(number: 2) when incrementByTwo() is called",
+      build: () => operationsCubit,
+      act: (cubit) => operationsCubit.incrementByTwo(),
+      expect: () => [OperationsState(number: 2)],
+    );
+
+    blocTest(
+      "The operationCubit should emit a state of OperationState(number: -2) when decrementByTwo() is called",
+      build: () => operationsCubit,
+      act: (cubit) => operationsCubit.decrementByTwo(),
+      expect: () => [OperationsState(number: -2)],
     );
   });
 }
