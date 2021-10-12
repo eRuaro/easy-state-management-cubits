@@ -23,14 +23,14 @@ void main() {
     blocTest(
       "The operationCubit should emit a state of OperationState(number: 1) when increment() is called",
       build: () => operationsCubit,
-      act: (cubit) => operationsCubit.increment(),
+      act: (cubit) => operationsCubit.incrementByOne(),
       expect: () => [OperationsState(number: 1)],
     );
 
     blocTest(
       "The operationCubit should emit a state of OperationState(number: -1) when decrement() is called",
       build: () => operationsCubit,
-      act: (cubit) => operationsCubit.decrement(),
+      act: (cubit) => operationsCubit.decrementByOne(),
       expect: () => [OperationsState(number: -1)],
     );
   });
