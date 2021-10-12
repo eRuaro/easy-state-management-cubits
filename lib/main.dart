@@ -1,6 +1,7 @@
+import 'package:cubit_state_management/cubits/internet/cubit/internet_cubit.dart';
 import 'package:cubit_state_management/cubits/operations/operations_cubit.dart';
 import 'package:cubit_state_management/screens/operations_screen.dart';
-import 'package:cubit_state_management/screens/registration_screen.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
@@ -12,18 +13,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => OperationsCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => OperationsCubit(),
+        ),
+        BlocProvider(
+          create: (context) => InternetCubit(connectivity: Connectivity()),
+        ),
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: "/operations",
-        routes: {
-          "/": (context) => RegistrationScreen(),
-          "/operations": (context) => OperationsScreen(),
-        },
+        home: OperationsScreen(),
       ),
     );
   }
