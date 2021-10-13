@@ -5,7 +5,7 @@ class OperationsState extends Equatable {
   // number must be valid at all times, thus annotating with the required keyword
   OperationsState({required this.number});
 
-  int number;
+  final int number;
 
   @override
   List<Object> get props => [this.number];
