@@ -1,4 +1,4 @@
-import 'package:cubit_state_management/cubits/internet/cubit/internet_cubit.dart';
+import 'package:cubit_state_management/cubits/internet/internet_cubit.dart';
 import 'package:cubit_state_management/cubits/operations/operations_cubit.dart';
 import 'package:cubit_state_management/screens/operations_screen.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
