@@ -9,6 +9,16 @@ abstract class InternetState extends Equatable {
 
 class InternetLoading extends InternetState {}
 
-class InternetWifi extends InternetState {}
+class InternetWifi extends InternetState {
+  final bool wifiConnected = true;
 
-class InternetNotWifi extends InternetState {}
+  @override
+  List<Object> get props => [wifiConnected];
+}
+
+class InternetNotWifi extends InternetState {
+  final bool wifiConnected = false;
+
+  @override
+  List<Object> get props => [wifiConnected];
+}

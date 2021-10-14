@@ -10,4 +10,3 @@ class OperationsState extends Equatable {
   @override
   List<Object> get props => [this.number];
 }
-

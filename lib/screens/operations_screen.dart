@@ -17,9 +17,9 @@ class _OperationsScreenState extends State<OperationsScreen> {
     return BlocListener<InternetCubit, InternetState>(
       listener: (context, state) {
         if (state is InternetWifi) {
-          wifiConnectivity = true;
-        } else {
-          wifiConnectivity = false;
+          wifiConnectivity = state.wifiConnected;
+        } else if (state is InternetNotWifi) {
+          wifiConnectivity = state.wifiConnected;
         }
       },
       child: Scaffold(
