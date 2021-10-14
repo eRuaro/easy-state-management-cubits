@@ -28,6 +28,14 @@ void main() {
     );
 
     blocTest(
+      'The operationCubit should emit a state of OperationState(number: 10) when incrementByOne is called and current state is OperationState(number: 9)',
+      build: () => operationsCubit,
+      seed: () => OperationsState(number: 9),
+      act: (cubit) => operationsCubit.incrementByOne(),
+      expect: () => [OperationsState(number: 10)],
+    );
+
+    blocTest(
       "The operationCubit should emit a state of OperationState(number: -1) when decrementByOne() is called",
       build: () => operationsCubit,
       act: (cubit) => operationsCubit.decrementByOne(),
